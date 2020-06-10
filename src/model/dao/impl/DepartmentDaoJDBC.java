@@ -25,20 +25,20 @@ public class DepartmentDaoJDBC implements DepartmentDao{
 	}
 	
 	@Override
-	public Department insert(String name) {
+	public Department insert(Department obj) {
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		Department depResult = new Department(null, null);
 		try {
 			st = conn.prepareStatement("INSERT INTO department (Name) VALUES (?)", Statement.RETURN_GENERATED_KEYS);
-			st.setString(1, name);
+			st.setString(1, obj.getName());
 			int rowsAffected = st.executeUpdate();
 			if (rowsAffected == 1) {
 				rs = st.getGeneratedKeys();
 				if (rs.next()) {
 					int id = rs.getInt(1);
 					depResult.setId(id);
-					depResult.setName(name);
+					depResult.setName(obj.getName());
 				}	
 			}
 			else {

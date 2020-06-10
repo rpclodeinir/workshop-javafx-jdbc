@@ -7,7 +7,7 @@ import model.entities.Seller;
 
 public interface DepartmentDao {
 	
-	Department insert(String name);
+	Department insert(Department obj);
 	Department update(Department obj);
 	List<Seller> deleteById(Integer id);
 	Department findById(Integer id);
