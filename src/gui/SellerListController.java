@@ -74,7 +74,7 @@ public class SellerListController implements Initializable, DataChangeListener {
 	@FXML
 	public void onBtNewAction(ActionEvent event) {
 		Stage parentStage = Utils.currentStage(event);
-		Seller obj = new Seller(null, "Write the name here ...", "Example: john@gmail.com", null, 0.00, null);
+		Seller obj = new Seller(null, "", "", null, null, null);
 		createDialogForm(obj, "/gui/SellerForm.fxml", parentStage);
 	}
 
